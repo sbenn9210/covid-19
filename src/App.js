@@ -1,11 +1,10 @@
-import React from 'react';
-import MiniDrawer from './components/Sidebar'
-import Summary from './components/Summary'
+import React from "react";
+import MiniDrawer from "./components/Sidebar";
+
 function App() {
   return (
     <div className="App">
-     <MiniDrawer />
-    <Summary />
+      <MiniDrawer />
     </div>
   );
 }
