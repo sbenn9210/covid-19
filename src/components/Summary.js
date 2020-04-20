@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
 import Card from "../containers/Card";
+import Pie from "./Pie";
 
 function Summary() {
   const [error, setError] = useState(null);
@@ -22,7 +23,7 @@ function Summary() {
       }
     );
   }, []);
-  console.log(items);
+
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -43,6 +44,7 @@ function Summary() {
         ) : (
           "Loading..."
         )}
+        <Pie data={items} />
       </div>
     );
   }
