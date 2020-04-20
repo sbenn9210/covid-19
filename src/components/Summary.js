@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 
 import Card from "../containers/Card";
 
@@ -21,8 +22,7 @@ function Summary() {
       }
     );
   }, []);
-
-  console.log(items.Global);
+  console.log(items);
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -31,11 +31,15 @@ function Summary() {
     return (
       <div>
         {items.Global ? (
-          <div>
+          <Grid container justify="center" direction="row" spacing={2}>
             {Object.entries(items.Global).map(([title, value]) => {
-              return <Card title={title} value={value} />;
+              return (
+                <Grid item>
+                  <Card title={title} value={value} />
+                </Grid>
+              );
             })}
-          </div>
+          </Grid>
         ) : (
           "Loading..."
         )}
@@ -45,8 +49,3 @@ function Summary() {
 }
 
 export default Summary;
-
-const Container = styled.div`
-  flexGrow: 1,
-    padding: theme.spacing(3),
-`;

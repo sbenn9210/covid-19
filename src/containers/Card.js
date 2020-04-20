@@ -10,7 +10,7 @@ import NumberFormatter from "./NumberFormatter";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    minWidth: 220,
   },
   bullet: {
     display: "inline-block",
