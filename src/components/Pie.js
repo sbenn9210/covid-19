@@ -4,13 +4,23 @@ import classes from "./LineGraph.module.css";
 
 export default class PieGraph extends Component {
   state = {
-    data: this.props.data,
+    data: this.props.data.Global,
   };
   chartRef = React.createRef();
+  filterCountries() {
+    const { data } = this.props;
+    data.Countries &&
+      data.Countries.map((country) => {
+        if (country.Country === "United States of America") {
+          console.log(country);
+          this.setState({ data: country });
+        }
+      });
+  }
 
   componentDidMount() {
+    const { data } = this.props;
     const myChartRef = this.chartRef.current.getContext("2d");
-
     new Chart(myChartRef, {
       type: "doughnut",
       data: {
@@ -26,7 +36,14 @@ export default class PieGraph extends Component {
         datasets: [
           {
             label: "Sales",
-            data: [83608, 5534, 31584, 2400051, 165012, 623259],
+            data: [
+              83608,
+              5534,
+              31584,
+              // this.props.data.Global.TotalConfirmed,
+              165012,
+              623259,
+            ],
           },
         ],
       },
@@ -36,7 +53,7 @@ export default class PieGraph extends Component {
     });
   }
   render() {
-    console.log(this.props.data);
+    console.log(this.state.data);
     return (
       <div className={classes.graphContainer}>
         <canvas id="myChart" ref={this.chartRef} />
