@@ -36,7 +36,6 @@ export default class PieGraph extends Component {
     });
   }
   render() {
-    console.log(this.props.data);
     return (
       <div className={classes.graphContainer}>
         <canvas id="myChart" ref={this.chartRef} />

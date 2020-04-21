@@ -16,8 +16,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import TrackChangesIcon from "@material-ui/icons/TrackChanges";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import { teal } from "@material-ui/core/colors";
 import { Link } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";

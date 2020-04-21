@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import styled from "styled-components";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
 import Card from "../containers/Card";
-import Pie from "./Pie";
 
 function Summary() {
   const [error, setError] = useState(null);
@@ -44,7 +41,6 @@ function Summary() {
         ) : (
           "Loading..."
         )}
-        <Pie data={items} />
       </div>
     );
   }
