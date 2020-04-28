@@ -3,7 +3,7 @@ import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 
 import Card from "../containers/Card";
-
+import Doughnut from "./Doughnut";
 function Summary() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -29,15 +29,27 @@ function Summary() {
     return (
       <div>
         {items.Global ? (
-          <Grid container justify="center" direction="row" spacing={2}>
-            {Object.entries(items.Global).map(([title, value]) => {
-              return (
-                <Grid item>
-                  <Card title={title} value={value} />
-                </Grid>
-              );
-            })}
-          </Grid>
+          <div>
+            <Grid container justify="center" direction="row" spacing={2}>
+              {Object.entries(items.Global).map(([title, value]) => {
+                return (
+                  <Grid item>
+                    <Card title={title} value={value} />
+                  </Grid>
+                );
+              })}
+            </Grid>
+            <Doughnut
+              data={[
+                items.Global.NewConfirmed,
+                items.Global.NewDeaths,
+                items.Global.NewRecovered,
+                items.Global.TotalConfirmed,
+                items.Global.TotalDeaths,
+                items.Global.TotalRecovered,
+              ]}
+            />
+          </div>
         ) : (
           "Loading..."
         )}
