@@ -21,7 +21,6 @@ import { Link } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 
 import Summary from "./Summary";
-import Rest from "./Rest";
 
 const drawerWidth = 240;
 
@@ -176,7 +175,6 @@ export default function MiniDrawer() {
         <div className={classes.toolbar} />
         <Switch>
           <Route path="/" component={Summary} exact />
-          <Route path="/test" component={Rest} exact />
         </Switch>
       </main>
     </div>
