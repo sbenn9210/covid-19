@@ -3,7 +3,9 @@ import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 
 import Card from "../containers/Card";
+import CountrySelect from "../containers/AutoComplete";
 import Doughnut from "./Doughnut";
+
 function Summary() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -39,6 +41,7 @@ function Summary() {
                 );
               })}
             </Grid>
+            <CountrySelect />
             <Doughnut
               data={[
                 items.Global.NewConfirmed,
